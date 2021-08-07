@@ -27,41 +27,15 @@ const headers = {
 const parserRestaurantData = (restaurant) => {
     return {
         'name': restaurant?.name,
+        'categorias': restaurant?.allCategories,
         'precioPromedio': restaurant?.averagePrice,
         'descuento': restaurant?.discount,
         'distancia': restaurant?.distance,
         'comida': restaurant?.food,
         'velocidad': restaurant?.speed,
+        'envio': restaurant?.shippingAmount
     }
 }
-
-
-// FUNCION PARA OBTENER LAS CATEGORIAS SOLAS - NO FUNCIONA: ME DEVUELVE LAS CATEGORIAS CON SU NOMBRE PERO TODO JUNTO, OSEA NO SE PUEDE DISTINGUIR DE Q RESTAURANT ES CADA CATEGORIA 
-// const parserRestaurantCategories = (restaurant) => {
-//     return {
-//         'categorias': restaurant?.categories
-//     }
-// }
-// async function getCategories() {
-//     let response = await Axios.get(urlRequest, {
-//         headers: headers
-//     });
-
-//     let restaurantResponse2 = response.data.list.data;
-//     restaurantCategories = restaurantResponse2.map(restaurant => parserRestaurantCategories(restaurant));
-
-//     return restaurantCategories;
-// }
-
-// getCategories().then((restaurantsData) => {
-// for (i in restaurantsData) {
-//     let cantidadCate = restaurantsData[i].categorias;
-
-//     for (x in cantidadCate) {
-//         console.log(cantidadCate[x].name);
-//     }
-// }
-// });
 
 
 async function getRestaurantsData() {
@@ -93,7 +67,4 @@ getRestaurantsData().then((restaurantsData) => {
 	saveInJson(restaurantsData);  // GUARDAR EN UN JSON
 	console.log(restaurantsData); // IMPRIMIR EN CONSOLA
 });  
-
-
-
 
