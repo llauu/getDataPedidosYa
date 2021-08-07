@@ -33,7 +33,8 @@ const parserRestaurantData = (restaurant) => {
         'distancia': restaurant?.distance,
         'comida': restaurant?.food,
         'velocidad': restaurant?.speed,
-        'envio': restaurant?.shippingAmount
+        'envio': restaurant?.shippingAmount,
+        'tiempoDeEnvio': restaurant?.deliveryTime
     }
 }
 
